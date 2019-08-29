@@ -1,21 +1,13 @@
 import React from 'react'
-import { IconMenu, IconSearch } from 'vtex.store-icons'
-import * as Amp from 'react-amphtml'
+import { IconSearch } from 'vtex.store-icons'
+import { ExtensionPoint } from 'vtex.render-runtime'
 
 const Header = () => {
   return (
     <React.Fragment>
       <header className="ph5 w-100 flex center justify-center pb4 pv2 bb bw1 b--muted-4">
         <div className="flex-wrap flex w-100 justify-between items-center">
-          {
-            // @ts-ignore
-            <button
-              className="bn bg-base pa4 flex items-center"
-              on="tap:menu-sidebar.open"
-            >
-              <IconMenu />
-            </button>
-          }
+          <ExtensionPoint id="category-menu" />
           <a className="pl3" href="/">
             store theme
           </a>
@@ -29,33 +21,6 @@ const Header = () => {
           />
         </div>
       </header>
-      <Amp.AmpSidebar
-        specName="default"
-        id="menu-sidebar"
-        className="relative bg-base"
-        side="left"
-        layout="nodisplay"
-      >
-        {
-          // @ts-ignore
-          <button
-            className="absolute top-0 mt3 ml3 left-0 pa4 bg-base bn"
-            on="tap:menu-sidebar.close"
-          >
-            ×
-          </button>
-        }
-        <Amp.AmpAccordion className="mt8">
-          <section className="bg-base bl-0 br-0 ba b--muted-4">
-            <h2 className="bg-base c-on-base pa4 bn t-action">Eletrônicos</h2>
-            <p>aaaa</p>
-          </section>
-          <section className="bg-base bl-0 br-0 ba b--muted-4">
-            <h2 className="bg-base c-on-base pa4 bn t-action">Veículos</h2>
-            <p>bbbb</p>
-          </section>
-        </Amp.AmpAccordion>
-      </Amp.AmpSidebar>
     </React.Fragment>
   )
 }

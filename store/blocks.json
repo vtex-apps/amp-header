@@ -1,7 +1,6 @@
 {
   "amp-header": {
-    "component": "Header",
-    "allowed": [
+    "blocks": [
       "category-menu"
     ]
   }
